@@ -29,7 +29,7 @@ public class FilmController {
 		if (id != 0) {
 			Film film = filmDAO.findFilmByFilmId(id);
 			mv.addObject("film", film);
-			mv.setViewName("searchFilmResult.jsp");
+			mv.setViewName("WEB-INF/views/searchFilmResult.jsp");
 
 		} else
 
@@ -44,7 +44,7 @@ public class FilmController {
 		System.out.println(film);
 		Film f = filmDAO.createFilm(film);
 		mv.addObject("film", f);
-		mv.setViewName("/MVCFilmSite/src/main/webapp/WEB-INF/views/addNewFilmResult.jsp");
+		mv.setViewName("WEB-INF/views/addNewFilmResult.jsp");
 		return mv;
 	}
 
