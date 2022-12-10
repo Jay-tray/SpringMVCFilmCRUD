@@ -11,7 +11,7 @@
 <body>
   <c:choose>
     <c:when test="${! empty film}">
-      
+      <p> Film added successfully </p>
     
       
     </c:when>
