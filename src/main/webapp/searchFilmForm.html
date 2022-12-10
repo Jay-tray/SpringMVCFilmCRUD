@@ -5,11 +5,15 @@
 <title>States</title>
 </head>
 <body>
-  <h3>States</h3>
-  <form action="GetStateData.do" method="GET">
-    Name:
-    <input type="text" name="name"/> 
-    <input type="submit" value="Get State Data" />
+  <h3>Search for film!</h3>
+  <form action="SearchFilmForm.do" method="GET">
+    Find film by ID:
+    <input type="text" name="ID"/> 
+      <br>
+    FInd film by keyword:
+    <input type="text" name="Keyword"/>
+      <br>
+    <input type="submit" value="Find Film" />
   </form>
 </body>
 </html>
