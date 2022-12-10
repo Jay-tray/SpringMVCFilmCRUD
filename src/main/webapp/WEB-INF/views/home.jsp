@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>NOES GOES</title>
+<title>NOSE GOES</title>
 </head>
 <body>
-<h1> NOES GOES</h1>
+<h1> NOSE GOES</h1>
 </body>
 </html>
