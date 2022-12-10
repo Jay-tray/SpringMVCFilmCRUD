@@ -5,28 +5,60 @@
 <title>Add Film</title>
 </head>
 <body>
-  <h3>Add a New Film</h3>
+  <h3>Add a New Film:</h3>
+  <div>
   <form action="AddFilmForm.do" method="GET">
-    Name:
+    Film Name:
     <input type="text" name="name"/> 
+    <br>
     Description:
-    <input type="text" name="name"/> 
+    <input type="text" name="desc"/> 
+    <br>
     Release year:
-    <input type="text" name="name"/> 
+    <input type="text" name="relYear"/> 
+    <br>
     Language ID:
-    <input type="text" name="name"/> 
+    <select name="langId">
+    <option value="1">1</option> 
+    <option value="2">2</option> 
+    <option value="3">3</option> 
+    <option value="4">4</option> 
+    <option value="5">5</option> 
+    <option value="6">6</option> 
+    </select>
+    <br>
      Rental Duration:
-    <input type="text" name="name"/> 
+    <input type="text" name="renDur"/> 
+    <br>
     Film Length:
-    <input type="text" name="name"/> 
+    <input type="text" name="length"/> 
+    <br>
     Replacement Cost:
-    <input type="text" name="name"/> 
+    <input type="text" name="repCost"/> 
+    <br>
     Rating:
-    <input type="text" name="name"/> 
-    Special Features:
-    <input type="text" name="name"/> 
-      
+    <input type="text" name="rating"/> 
+    <br><br>
+   
+     <div>Special Features <br>
+      <input type="checkbox" id="trailers" name="specFeat" value="trailers" />
+      <label for="trailers">Trailers</label>
+    </div>
+    <div>
+      <input type="checkbox" id="commentaries" name="specFeat" value="commentaries" />
+      <label for="commentaries">Commentaries</label>
+    </div>
+    <div>
+      <input type="checkbox" id="delScenes" name="specFeat" value="delScenes" />
+      <label for="delScenes">Deleted Scenes</label>
+    </div>
+    <div>
+      <input type="checkbox" id="behScenes" name="specFeat" value="behScenes" />
+      <label for="behScenes">Behind the Scenes</label>
+    </div>
+    <br> 
     <input type="submit" value="Add Film" />
   </form>
+  </div>
 </body>
 </html>
