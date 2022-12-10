@@ -19,7 +19,7 @@ public class Film {
 	private List<Actor> actors;
 
 	public Film(int id, String title, String description, int relYear, int lanId, double renDur, double renRat,
-			int length, double repCost, String rating, String specFeat, String language, List<Actor> actors) {
+			int length, double repCost, String rating, String specFeat) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -32,8 +32,8 @@ public class Film {
 		this.repCost = repCost;
 		this.rating = rating;
 		this.specFeat = specFeat;
-		this.language = language;
-		this.actors = actors;
+//		this.language = language;
+//		this.actors = actors;
 	}
 
 	public Film() {

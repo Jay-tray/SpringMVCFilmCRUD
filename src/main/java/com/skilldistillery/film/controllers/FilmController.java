@@ -38,12 +38,13 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "AddFilmForm.do", params = "addFilm", method = RequestMethod.GET)
+	@RequestMapping(path = "AddFilmForm.do", method = RequestMethod.GET)
 	public ModelAndView getCreateFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(film);
 		Film f = filmDAO.createFilm(film);
 		mv.addObject("film", f);
-		mv.setViewName("addNewFilmResult.jsp");
+		mv.setViewName("/MVCFilmSite/src/main/webapp/WEB-INF/views/addNewFilmResult.jsp");
 		return mv;
 	}
 

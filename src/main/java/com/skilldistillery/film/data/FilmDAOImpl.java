@@ -362,18 +362,18 @@ public class FilmDAOImpl implements FilmDAO {
 			try {
 				conn = DriverManager.getConnection(URL, user, pass);
 				conn.setAutoCommit(false); // START TRANSACTION
-				String sql = "INSERT INTO film (title, desctiption, release_year, language_id , rental_duration, length"
-						+ "replacement_cost, rating, special_features) VALUES (?,?,?,?,?,?,?,?,?)";
+				String sql = "INSERT INTO film (title, description, release_year, language_id , rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES (?,?,?,?,?,?,?,?,?,?)";
 				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 				stmt.setString(1, newFilm.getTitle());
 				stmt.setString(2, newFilm.getDescription());
 				stmt.setInt(3, newFilm.getRelYear());
 				stmt.setInt(4, newFilm.getLanId());
 				stmt.setDouble(5, newFilm.getRenDur());
-				stmt.setInt(6,  newFilm.getLength());
-				stmt.setDouble(7, newFilm.getRepCost());
-				stmt.setString(8, newFilm.getRating());
-				stmt.setString(9, newFilm.getSpecFeat());
+				stmt.setDouble(6, newFilm.getRenRat());
+				stmt.setInt(7,  newFilm.getLength());
+				stmt.setDouble(8, newFilm.getRepCost());
+				stmt.setString(9, newFilm.getRating());
+				stmt.setString(10, newFilm.getSpecFeat());
 
 				int updateCount = stmt.executeUpdate();
 
