@@ -28,6 +28,7 @@
         <li>${film.actors}</li>
         <li>${film.category}</li>
       </ul>
+      
       </c:forEach>
 
     </c:when>

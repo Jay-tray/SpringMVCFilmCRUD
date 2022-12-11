@@ -78,7 +78,7 @@ public class FilmController {
 
 		}
 		mv.addObject("deleted", deleted);
-		mv.setViewName("WEB-INF/views/deleteFilmResult.jsp");
+		mv.setViewName("WEB-INF/views/deleteFilm.jsp");
 		return mv;
 	}
 
