@@ -66,18 +66,11 @@ public class FilmController {
 
 	// Deletes Film from database and displays deleteFilmResult jsp page for success
 	// or failure
-	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.POST)
-	public ModelAndView deleteFilm( int filmID) {
+	@RequestMapping(path = "DeleteFilm.do", params = "filmId", method = RequestMethod.POST)
+	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
-		int idInt = filmID;
-		boolean deleted = false;
-
-		if (idInt > 1000) {
-			Film film = filmDAO.findFilmByFilmId(idInt);
-			deleted = filmDAO.deleteFilm(film);
-
-		}
-		mv.addObject("deleted", deleted);
+	//	Film film = filmDAO.findFilmByFilmId(filmId);
+		boolean filmDeleted = filmDAO.deleteFilm(filmDAO.findFilmByFilmId(filmId));
 		mv.setViewName("WEB-INF/views/deleteFilm.jsp");
 		return mv;
 	}

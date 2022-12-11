@@ -34,8 +34,8 @@ public class FilmDAOImpl implements FilmDAO {
 				return null;
 			}
 			Film film = null;
-			//String sql = "SELECT * FROM film WHERE film.id = ?";
-			String sql ="SELECT * FROM film JOIN film_category on film.id=film_category.film_id JOIN category on film_category.category_id = category.id WHERE film.id = ?";
+			String sql = "SELECT * FROM film WHERE film.id = ?";
+		//	String sql ="SELECT * FROM film JOIN film_category on film.id=film_category.film_id JOIN category on film_category.category_id = category.id WHERE film.id = ?";
 			try {
 				Connection conn = DriverManager.getConnection(URL, user, pass);
 				PreparedStatement stmt = conn.prepareStatement(sql);
@@ -58,7 +58,7 @@ public class FilmDAOImpl implements FilmDAO {
 					film.setSpecFeat(filmResult.getString("special_features"));
 					film.setActors(findActorsByFilmId(filmId));
 					film.setLanguage(getLanguageOfFilm(filmId));
-					film.setCategory(filmResult.getString("category.name"));
+				//	film.setCategory(filmResult.getString("category.name"));
 				}
 
 				filmResult.close();
@@ -163,7 +163,8 @@ public class FilmDAOImpl implements FilmDAO {
 		public List<Film> findFilmByKeywords(String keyword) {
 
 			List<Film> listOfFilms = new ArrayList<>();
-			String sql = "SELECT * FROM film JOIN film_category on film.id=film_category.film_id JOIN category on film_category.category_id = category.id  WHERE film.title LIKE ? OR film.description LIKE ? ";
+			String sql = "SELECT * FROM film WHERE film.title LIKE ? OR film.description LIKE ? ";
+			//String sql = "SELECT * FROM film JOIN film_category on film.id=film_category.film_id JOIN category on film_category.category_id = category.id  WHERE film.title LIKE ? OR film.description LIKE ? ";
 			Film film = null;
 			try {
 				Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -187,7 +188,7 @@ public class FilmDAOImpl implements FilmDAO {
 					film.setSpecFeat(filmResult.getString("special_features"));
 					film.setActors(findActorsByFilmId(film.getId()));
 					film.setLanguage(getLanguageOfFilm(film.getId()));
-					film.setCategory(filmResult.getString("category.name"));
+					//film.setCategory(filmResult.getString("category.name"));
 					
 					listOfFilms.add(film);
 				}
