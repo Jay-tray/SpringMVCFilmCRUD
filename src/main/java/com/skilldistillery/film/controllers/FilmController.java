@@ -78,11 +78,11 @@ public class FilmController {
 	@RequestMapping(path = "editFilm.do", method = RequestMethod.POST)
 	public ModelAndView updateFilm(Film film) {
 
-		boolean editedFilm = filmDAO.updateFilm(film);
 		ModelAndView mv = new ModelAndView();
+		boolean editedFilm = filmDAO.updateFilm(film);
 		mv.addObject("editedFilm", editedFilm);
 		mv.setViewName("WEB-INF/views/editFilm.jsp");
-		
+		System.out.println(film);
 		return mv;
 
 	}
