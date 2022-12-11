@@ -77,8 +77,8 @@ public class FilmController {
 
 	/*
 	 * @RequestMapping(path = "editFilm.do", method=RequestMethod.POST) public
-	 * ModelAndView updateFilm(@ModelAttribute("film") Film film) { ModelAndView mv
-	 * = new ModelAndView(); int idInt = Int }
+	 * ModelAndView updateFilm(@("film") Film film) { ModelAndView mv = new
+	 * ModelAndView(); int idInt = Int }
 	 */
 
 }
