@@ -10,7 +10,7 @@
 <title>editFilm</title>
 </head>
 <body>
-<form action = "editFilm.do?id=${film.id }" method = "POST">
+<form action ="editFilm.do?id=${film.id }" method = "POST">
 	<label for= "title">Title:</label>
      <input type="text" name="title" value="${film.title }" />
      <br>
@@ -18,7 +18,7 @@
     <input type="text" name="description" value="${film.description }" />
   <br>
    <label for= "title">Release Year:</label>
-    <input type="text" name="relYear"value="${film.relYear}" /> 
+    <input type="text" name="relYear"value="${film.relYear }" /> 
     <br>
 <label for= "title">Language ID:</label>
     <select name="lanId"> 
@@ -54,12 +54,13 @@
     <select name="rating">
     <option value="G">G</option> 
     <option value="PG">PG</option> 
-    <option value="PG-13">PG-13</option> 
+    <option value="PG-13">PG13</option> 
     <option value="R">R</option> 
-    <option value="M">M</option> 
-    <option value="NA">NA</option>
+    <option value="NC-17">NC17</option> 
     </select>
-    <br><br>
+    <br>
+    <input type= "submit" value= "Update Film">
+    <br>
  </form>
 </body>
 </html>
