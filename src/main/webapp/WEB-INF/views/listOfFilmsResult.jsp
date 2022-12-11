@@ -13,6 +13,7 @@
     <c:when test="${! empty film}">
 
       <p> Film Search Match: </p>
+      <c:forEach var="film" items="${film}">
     <ul>
         <li>${film.title}</li>
         <li>${film.description}</li>
@@ -25,7 +26,7 @@
         <li>${film.rating}</li>
         <li>${film.specFeat}</li>
       </ul>
-      
+      </c:forEach>
 
     </c:when>
     <c:otherwise>

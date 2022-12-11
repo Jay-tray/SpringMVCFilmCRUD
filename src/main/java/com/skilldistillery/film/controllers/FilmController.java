@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.FilmDAO;
@@ -40,12 +41,15 @@ public class FilmController {
 
 	// displays list of Films based off Keyword search
 	@RequestMapping(path = "SearchByKeyword.do", params = "keyword", method = RequestMethod.GET)
-	public ModelAndView findFilmByKeywords(String keyword) {
+	public ModelAndView findFilmByKeywords(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
-		List<Film> films = filmDAO.findFilmByKeywords(keyword);
+		List<Film> films = null;
+		System.out.println(keyword);
+		if (!keyword.isEmpty()) {
+		films = filmDAO.findFilmByKeywords(keyword);
 		mv.addObject("film", films);
-		mv.setViewName("WEB-INF/views/searchFilmResult.jsp");
-
+		mv.setViewName("WEB-INF/views/listOfFilmsResult.jsp");
+		}
 		return mv;
 	}
 
