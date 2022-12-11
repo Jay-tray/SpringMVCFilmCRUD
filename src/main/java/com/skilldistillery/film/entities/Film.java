@@ -17,9 +17,10 @@ public class Film {
 	private String specFeat;
 	private String language;
 	private List<Actor> actors;
+	private String category;
 
 	public Film(int id, String title, String description, int relYear, int lanId, double renDur, double renRat,
-			int length, double repCost, String rating, String specFeat) {
+			int length, double repCost, String rating, String specFeat, List<Actor> actors, String category) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -33,7 +34,16 @@ public class Film {
 		this.rating = rating;
 		this.specFeat = specFeat;
 //		this.language = language;
-//		this.actors = actors;
+		this.actors = actors;
+		this.category = category;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public Film() {
@@ -144,7 +154,7 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Title of Film = " + title + "\nDescription of Film = " + description + "\nYear Released = " + relYear
-				+ "\nRating = " + rating + "\nLanguage = " + language + "\nActors = " + actors;
+				+ "\nRating = " + rating + "\nLanguage = " + language + "\nActors = " + actors + "\nCategory = " + category;
 	}
 
 	public List<Actor> getActors() {
