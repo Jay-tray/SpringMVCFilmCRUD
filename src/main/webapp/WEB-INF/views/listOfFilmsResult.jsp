@@ -26,7 +26,7 @@
         <li>${film.rating}</li>
         <li>${film.specFeat}</li>
         <li>${film.actors}</li>
-        <li>${film.category}</li>
+        <%-- <li>${film.category}</li> --%>
       </ul>
       
       </c:forEach>

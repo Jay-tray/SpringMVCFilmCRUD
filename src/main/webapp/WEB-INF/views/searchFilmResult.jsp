@@ -25,7 +25,7 @@
         <li>${film.rating}</li>
         <li>${film.specFeat}</li>
         <li>${film.actors}</li>
-        <li>${film.category}</li>
+       <%--  <li>${film.category}</li> --%>
       </ul>
       		<p>Return to Main Menu</p>
 		<form action="index.html" method="GET">
