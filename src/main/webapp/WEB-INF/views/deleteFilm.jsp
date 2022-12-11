@@ -10,7 +10,7 @@
 </head>
 <body>
   <c:choose>
-    <c:when test="${deleted}">
+    <c:when test="${! deleted}">
        Film  successfully deleted!
     
       

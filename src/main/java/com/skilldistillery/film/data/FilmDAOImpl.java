@@ -466,15 +466,16 @@ public class FilmDAOImpl implements FilmDAO {
 			try {
 				conn = DriverManager.getConnection(URL, user, pass);
 				conn.setAutoCommit(false); // START TRANSACTION
-				String sql = "DELETE FROM film WHERE film_id = ?";
+				String sql = "DELETE FROM film WHERE id = ?";
+			//	String sql = "DELETE FROM film_actor WHERE film_id = ?";
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				stmt.setInt(1, film.getId());
 
+				//sql = "DELETE FROM film WHERE id = ?";
+				//stmt.getConnection().prepareStatement(sql);
+				//stmt.setInt(1,  film.getId());
 				int updateCount = stmt.executeUpdate();
-				if (updateCount == 1) {
-					System.out.println("You successfully deleted " + updateCount + " record.");
-				}
-
+		
 				conn.commit(); // COMMIT TRANSACTION
 				conn.close();
 
