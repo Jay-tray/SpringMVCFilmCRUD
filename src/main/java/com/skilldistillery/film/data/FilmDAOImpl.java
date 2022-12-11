@@ -34,7 +34,8 @@ public class FilmDAOImpl implements FilmDAO {
 				return null;
 			}
 			Film film = null;
-			String sql = "SELECT * FROM film WHERE film.id = ?";
+			//String sql = "SELECT * FROM film WHERE film.id = ?";
+			String sql ="SELECT * FROM film JOIN film_category on film.id=film_category.film_id JOIN category on film_category.category_id = category.id WHERE film.id = ?";
 			try {
 				Connection conn = DriverManager.getConnection(URL, user, pass);
 				PreparedStatement stmt = conn.prepareStatement(sql);
@@ -57,7 +58,7 @@ public class FilmDAOImpl implements FilmDAO {
 					film.setSpecFeat(filmResult.getString("special_features"));
 					film.setActors(findActorsByFilmId(filmId));
 					film.setLanguage(getLanguageOfFilm(filmId));
-					film.setCategory(getCategory(filmId));
+					film.setCategory(filmResult.getString("category.name"));
 				}
 
 				filmResult.close();
@@ -162,7 +163,7 @@ public class FilmDAOImpl implements FilmDAO {
 		public List<Film> findFilmByKeywords(String keyword) {
 
 			List<Film> listOfFilms = new ArrayList<>();
-			String sql = "SELECT * FROM film WHERE film.title LIKE ? OR film.description LIKE ? ";
+			String sql = "SELECT * FROM film JOIN film_category on film.id=film_category.film_id JOIN category on film_category.category_id = category.id  WHERE film.title LIKE ? OR film.description LIKE ? ";
 			Film film = null;
 			try {
 				Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -186,6 +187,7 @@ public class FilmDAOImpl implements FilmDAO {
 					film.setSpecFeat(filmResult.getString("special_features"));
 					film.setActors(findActorsByFilmId(film.getId()));
 					film.setLanguage(getLanguageOfFilm(film.getId()));
+					film.setCategory(filmResult.getString("category.name"));
 					
 					listOfFilms.add(film);
 				}
@@ -225,31 +227,23 @@ public class FilmDAOImpl implements FilmDAO {
 			}
 			return language;
 		}
-		public String getCategory(int categoryId) {
-			if (categoryId <= 0) {
-				return null;
-			}
-			String sql = "SELECT category.name FROM film_category JOIN film ON film_category.film_id=film.id WHERE film.id = ?"; //FIGURE THIS OUT
-			String category = "";
-			try {
-				Connection conn = DriverManager.getConnection(URL, user, pass);
-				PreparedStatement stmt = conn.prepareStatement(sql);
-				stmt.setInt(1, categoryId);
-				ResultSet rs = stmt.executeQuery();
 
-				if (rs.next()) {
-					category = rs.getString("category.name");
-				}
-
-				rs.close();
-				stmt.close();
-				conn.close();
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return category;
-		}
+		/*
+		 * public String getCategory(int categoryId) { if (categoryId <= 0) { return
+		 * null; } String sql =
+		 * "SELECT category.name FROM film_category JOIN film ON film_category.film_id=film.id WHERE film.id = ?"
+		 * ; //FIGURE THIS OUT String category = ""; try { Connection conn =
+		 * DriverManager.getConnection(URL, user, pass); PreparedStatement stmt =
+		 * conn.prepareStatement(sql); stmt.setInt(1, categoryId); ResultSet rs =
+		 * stmt.executeQuery();
+		 * 
+		 * if (rs.next()) { category = rs.getString("category.name"); }
+		 * 
+		 * rs.close(); stmt.close(); conn.close();
+		 * 
+		 * } catch (SQLException e) { e.printStackTrace(); } return category;
+		 */
+		//}
 		@Override
 		public Actor createActor(Actor actor) {
 			Actor newActor = actor;
@@ -447,7 +441,7 @@ public class FilmDAOImpl implements FilmDAO {
 				stmt.setDouble(8, film.getRepCost());
 				stmt.setString(9, film.getRating());
 				stmt.setString(10, film.getSpecFeat());
-
+				
 				int updateCount = stmt.executeUpdate();
 
 				if (updateCount == 1) {
@@ -490,16 +484,12 @@ public class FilmDAOImpl implements FilmDAO {
 
 			try {
 				conn = DriverManager.getConnection(URL, user, pass);
-				conn.setAutoCommit(false); // START TRANSACTION
-				String sql = "DELETE FROM film WHERE id = ?";
-			//	String sql = "DELETE FROM film_actor WHERE film_id = ?";
+				String sql = "DELETE FROM film WERE id = ?";
+				conn.setAutoCommit(false);
+	
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				stmt.setInt(1, film.getId());
-
-				//sql = "DELETE FROM film WHERE id = ?";
-				//stmt.getConnection().prepareStatement(sql);
-				//stmt.setInt(1,  film.getId());
-				int updateCount = stmt.executeUpdate();
+				stmt.executeUpdate();
 		
 				conn.commit(); // COMMIT TRANSACTION
 				conn.close();

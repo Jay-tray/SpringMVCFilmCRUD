@@ -23,13 +23,13 @@
 		</form>
 		<br>
 			<p>Edit Film</p>
-		<form action="editFilm.html" method="GET">
+		<form action="editFilm.do" method="POST">
 		<input type="hidden" name="film" value= ${film.id } />
 		<input type="submit" value="Edit Film" />		
 		</form>	
 		<br>
 			<p>Delete Film</p>
-		<form action="deleteFilm.html" method="GET">
+		<form action="deleteFilm.html" method="POST">
 		<input type="hidden" name="film" value= ${film.id } />
 		<input type="submit" value="Delete Film" />
 		</form>	
