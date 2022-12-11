@@ -31,13 +31,21 @@
     <input type="text" name="renDur"/> 
     <br>
      Rental Rate:
-    <input type="text" name="renRat"/> 
+    <select name="renRat">
+    <option value="3.99">3.99</option> 
+    <option value="5.99">5.99</option> 
+    <option value="7.99">7.99</option> 
+    </select>
     <br>
     Film Length:
     <input type="text" name="length"/> 
     <br>
     Replacement Cost:
-    <input type="text" name="repCost"/> 
+     <select name="repCost">
+    <option value="3.99">3.99</option> 
+    <option value="5.99">5.99</option> 
+    <option value="7.99">7.99</option> 
+    </select>
     <br>
     Rating:
     <input type="text" name="rating"/> 
@@ -46,16 +54,13 @@
      <div>Special Features <br>
       <input type="checkbox" id="trailers" name="specFeat" value="trailers" />
       <label for="trailers">Trailers</label>
-    </div>
-    <div>
+    <br>
       <input type="checkbox" id="commentaries" name="specFeat" value="commentaries" />
       <label for="commentaries">Commentaries</label>
-    </div>
-    <div>
+    <br>
       <input type="checkbox" id="delScenes" name="specFeat" value="delScenes" />
       <label for="delScenes">Deleted Scenes</label>
-    </div>
-    <div>
+   <br>
       <input type="checkbox" id="behScenes" name="specFeat" value="behScenes" />
       <label for="behScenes">Behind the Scenes</label>
     </div>
