@@ -12,6 +12,7 @@
 	<c:choose>
 		<c:when test="${! empty film}">
 			<p>Film added successfully</p>
+			<p>Your film's ID is:  ${film.id } </p>
 			<br>
 			<br>
 			<br>
@@ -22,13 +23,13 @@
 		</form>
 		<br>
 			<p>Edit Film</p>
-		<form action="editFilm.html" method="GET">
+		<form action="editFilm.do" method="POST">
 		<input type="hidden" name="film" value= ${film.id } />
 		<input type="submit" value="Edit Film" />		
 		</form>	
 		<br>
 			<p>Delete Film</p>
-		<form action="html" method="GET">
+		<form action="deleteFilm.html" method="POST">
 		<input type="hidden" name="film" value= ${film.id } />
 		<input type="submit" value="Delete Film" />
 		</form>	
