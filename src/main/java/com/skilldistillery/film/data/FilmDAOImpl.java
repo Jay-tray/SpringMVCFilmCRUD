@@ -466,7 +466,7 @@ public class FilmDAOImpl implements FilmDAO {
 			try {
 				conn = DriverManager.getConnection(URL, user, pass);
 				conn.setAutoCommit(false); // START TRANSACTION
-				String sql = "DELETE FROM film_actor WHERE film_id = ?";
+				String sql = "DELETE FROM film WHERE film_id = ?";
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				stmt.setInt(1, film.getId());
 
