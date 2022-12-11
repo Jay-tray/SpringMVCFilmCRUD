@@ -24,6 +24,8 @@
         <li>${film.repCost}</li>
         <li>${film.rating}</li>
         <li>${film.specFeat}</li>
+        <li>${film.actors}</li>
+        <li>${film.category}</li>
       </ul>
       
 
