@@ -10,23 +10,17 @@
 <title>editFilm</title>
 </head>
 <body>
-  <c:choose>
-    <c:when test="${! empty film}">
-     <form action="editFilm.do" method="POST">
-     <input type="hidden" name="id" value="${film.id }" />
+<form action = "editFilm.do?id=${film.id }" method = "POST">
+	<label for= "title">Title:</label>
+     <input type="text" name="title" value="${film.title }" />
      <br>
-     ID: ${film.id} }
-     <br> 
-     Film Name:
-    <input type="text" name="title" value="${film.title }" />
-    <br>
-    Description:
+	<label for= "title">Description:</label>
     <input type="text" name="description" value="${film.description }" />
+  <br>
+   <label for= "title">Release Year:</label>
+    <input type="text" name="relYear"value="${film.relYear}" /> 
     <br>
-    Release year:
-    <input type="text" name="relYear"value="${film.releaseYear}" /> 
-    <br>
-    Language ID:
+<label for= "title">Language ID:</label>
     <select name="lanId"> 
     <option value="1">English</option> 
     <option value="2">Italian</option> 
@@ -36,27 +30,27 @@
     <option value="6">German</option>
     </select>
     <br>
-     Rental Duration:
-    <input type="text" name="renDur" value="${film.rentalDuration }" />
+    <label for= "title">Rental Duration:</label>
+    <input type="text" name="renDur" value="${film.renDur }" />
     <br>
-     Rental Rate:
+ <label for= "title">Rental Rate:</label>
     <select name="renRat">
     <option value="3.99">3.99</option> 
     <option value="5.99">5.99</option> 
     <option value="7.99">7.99</option> 
     </select>
     <br>
-    Film Length:
+    <label for= "title">Film Length:</label>
     <input type="text" name="length" value="${film.length }" />
     <br>
-    Replacement Cost:
+   <label for= "title">Replacement Cost:</label>
      <select name="repCost">
     <option value="3.99">3.99</option> 
     <option value="5.99">5.99</option> 
     <option value="7.99">7.99</option> 
     </select>
     <br>
-    Rating:
+     <label for= "title">Rating:</label>
     <select name="rating">
     <option value="G">G</option> 
     <option value="PG">PG</option> 
@@ -66,26 +60,6 @@
     <option value="NA">NA</option>
     </select>
     <br><br>
-   
-     <div>Special Features <br>
-      <input type="checkbox" id="trailers" name="specFeat" value="trailers" />
-      <label for="trailers">Trailers</label>
-    <br>
-      <input type="checkbox" id="commentaries" name="specFeat" value="commentaries" />
-      <label for="commentaries">Commentaries</label>
-    <br>
-      <input type="checkbox" id="delScenes" name="specFeat" value="delScenes" />
-      <label for="delScenes">Deleted Scenes</label>
-   <br>
-      <input type="checkbox" id="behScenes" name="specFeat" value="behScenes" />
-      <label for="behScenes">Behind the Scenes</label>
-    </div>
-    
-    </form>  
-    </c:when>
-    <c:otherwise>
-      <p>No Film Found</p>
-    </c:otherwise>
-  </c:choose>
+ </form>
 </body>
 </html>

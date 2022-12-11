@@ -46,9 +46,9 @@ public class FilmController {
 		List<Film> films = null;
 		System.out.println(keyword);
 		if (!keyword.isEmpty()) {
-		films = filmDAO.findFilmByKeywords(keyword);
-		mv.addObject("film", films);
-		mv.setViewName("WEB-INF/views/listOfFilmsResult.jsp");
+			films = filmDAO.findFilmByKeywords(keyword);
+			mv.addObject("film", films);
+			mv.setViewName("WEB-INF/views/listOfFilmsResult.jsp");
 		}
 		return mv;
 	}
@@ -69,16 +69,24 @@ public class FilmController {
 	@RequestMapping(path = "DeleteFilm.do", params = "filmId", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
-	//	Film film = filmDAO.findFilmByFilmId(filmId);
+		// Film film = filmDAO.findFilmByFilmId(filmId);
 		boolean filmDeleted = filmDAO.deleteFilm(filmDAO.findFilmByFilmId(filmId));
 		mv.setViewName("WEB-INF/views/deleteFilm.jsp");
 		return mv;
 	}
 
-	/*
-	 * @RequestMapping(path = "editFilm.do", method=RequestMethod.POST) public
-	 * ModelAndView updateFilm(@("film") Film film) { ModelAndView mv = new
-	 * ModelAndView(); int idInt = Int }
-	 */
+	@RequestMapping(path = "editFilm.do", method = RequestMethod.POST)
+	public ModelAndView updateFilm(Film film) {
 
+		boolean editedFilm = filmDAO.updateFilm(film);
+
+
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("editedFilm", editedFilm);
+		mv.setViewName("WEB-INF/views/editFilm.jsp");
+		
+		return mv;
+
+	}
 }
