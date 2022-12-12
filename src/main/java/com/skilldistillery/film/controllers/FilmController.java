@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.FilmDAO;
 import com.skilldistillery.film.entities.Film;
@@ -75,17 +76,27 @@ public class FilmController {
 		return mv;
 	}
 
-	
-	
 	@RequestMapping(path = "editFilm.do", method = RequestMethod.POST)
 	public ModelAndView updateFilm(Film film) {
-
-		ModelAndView mv = new ModelAndView();
-		boolean editedFilm = filmDAO.updateFilm(film);
-		mv.addObject("editedFilm", editedFilm);
-		mv.setViewName("WEB-INF/views/editFilm.jsp");
-		System.out.println(film);
-		return mv;
-
+	 
+	 ModelAndView mv = new ModelAndView(); boolean editedFilm =
+	 filmDAO.updateFilm(film); mv.addObject("editedFilm", editedFilm);
+	 mv.setViewName("WEB-INF/views/editFilm.jsp"); System.out.println(film);
+	 return mv;
 	}
+	/*
+	 * @RequestMapping(path = "editFilm.do", params = "film", method =
+	 * RequestMethod.POST) public String updateFilm(Film film, RedirectAttributes
+	 * redir) { filmDAO.updateFilm(film); redir.addFlashAttribute("filmAdd", film);
+	 * 
+	 * return "redirect:editFilm.do"; }
+	 * 
+	 * @RequestMapping(path = "filmEditComplete.do", method = RequestMethod.GET )
+	 * public ModelAndView updateFilm(Film film) { ModelAndView mv = new
+	 * ModelAndView(); mv.setViewName("WEB-INF/views/filmUpdated.jsp");
+	 * System.out.println(film); return mv;
+	 * 
+	 * }
+	 */
+
 }

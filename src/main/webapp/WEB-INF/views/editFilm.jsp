@@ -10,9 +10,9 @@
 <title>editFilm</title>
 </head>
 <body>
-<form action ="editFilm.do?id=${film.id }" method = "POST">
+<form action ="editFilm.do?id=${film.id}"  method = "POST">
 	<label for= "title">Title:</label>
-     <input type="text" name="title" value="${film.title }" />
+     <input type="text" name="title" value="${ film.title}" />
      <br>
 	<label for= "title">Description:</label>
     <input type="text" name="description" value="${film.description }" />
@@ -77,5 +77,10 @@
     <input type= "submit" value= "Update Film">
     <br>
  </form>
+    	<p>To view or delete your film return to Main Menu</p>
+		<form action="index.html" method="GET">
+		<input type="hidden" name="film" value= ${film.id } />
+		<input type="submit" value="Main Menu" />
+		</form>
 </body>
 </html>
