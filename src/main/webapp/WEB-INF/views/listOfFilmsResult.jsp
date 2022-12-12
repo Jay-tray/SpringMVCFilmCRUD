@@ -34,7 +34,7 @@
 		<input type="submit" value="Main Menu" />
 		</form>
 		<br>			<p>Edit Film</p>
-		<form action="editFilm.do?id=${film.id }" method="POST">
+		<form action="editFilm.do?id=${film.id }&title=${film.title}&description=${film.description }&relYear=${film.relYear}&lanId=${film.lanId}&renDur=${film.renDur}&renRat=${film.renRat}&length=${film.length}&repCost=${film.repCost}&rating=${film.rating}&specFeat=${film.specFeat}" method="POST">
 		<input type="hidden" name="film" value= "${film.id }" />
 		<input type="submit" value="Edit Film" />		
 		</form>	

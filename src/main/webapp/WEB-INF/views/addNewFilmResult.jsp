@@ -12,7 +12,7 @@
 	<c:choose>
 		<c:when test="${! empty film}">
 			<p>Film added successfully</p>
-			<p>Your film's ID is:  ${film.id } </p>
+			<p>Your film's ID is: ${film.id } </p>
 			<br>
 			<br>
 			<br>

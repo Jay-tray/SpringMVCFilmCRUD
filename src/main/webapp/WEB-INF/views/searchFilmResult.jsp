@@ -15,17 +15,17 @@
       <p> Film Search Match: </p>
     <ul>
     <li>${film.id }</li>
-        <li>${film.title}</li>
-        <li>${film.description}</li>
-        <li>${film.relYear}</li>
-        <li>${film.lanId}</li>
-        <li>${film.renDur}</li>
-        <li>${film.renRat}</li>
-        <li>${film.length}</li>
-        <li>${film.repCost}</li>
-        <li>${film.rating}</li>
-        <li>${film.specFeat}</li>
-        <li>${film.actors}</li>
+        <li>Title: ${film.title}</li>
+        <li>Description: ${film.description}</li>
+        <li>Year: ${film.relYear}</li>
+        <li>Language ID: ${film.lanId}</li>
+        <li>Rental Duration: ${film.renDur}</li>
+        <li>Rental Rate: ${film.renRat}</li>
+        <li>Film Length: ${film.length}</li>
+        <li>Replacement Cost: ${film.repCost}</li>
+        <li>Film Rating: ${film.rating}</li>
+        <li>Special Features: ${film.specFeat}</li>
+        <li>Actors: ${film.actors}</li>
        <%--  <li>${film.category}</li> --%>
       </ul>
 
@@ -41,14 +41,13 @@
 		</form>
 		<br>
 			<p>Edit Film</p>
-		<form action="editFilm.do?id=${film.id }" method="POST">
+		<form action="editFilm.do?id=${film.id }&title=${film.title}&description=${film.description }&relYear=${film.relYear}&lanId=${film.lanId}&renDur=${film.renDur}&renRat=${film.renRat}&length=${film.length}&repCost=${film.repCost}&rating=${film.rating}&specFeat=${film.specFeat}" method="POST">
 		<input type="hidden" name="film" value= "${film.id }" />
 		<input type="submit" value="Edit Film" />		
 		</form>	
 		<br>
 			<p>Delete Film</p>
 		<form action="deleteFilm.html" method="POST">
-		<input type="hidden" name="film" value= "${film.id }" />
 		<input type="submit" value="Delete Film" />
 		</form>	
 </body>

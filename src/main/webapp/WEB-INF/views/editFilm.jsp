@@ -10,15 +10,48 @@
 <title>editFilm</title>
 </head>
 <body>
+  <c:choose>
+    <c:when test="${! empty film}">
+
+      <p> You may edit the following items for Film ID: ${film.id }</p>
+    <ul>
+        <li>Title: ${film.title}</li>
+        <li>Description: ${film.description}</li>
+        <li>Year: ${film.relYear}</li>
+        <li>Language identifier: ${film.lanId}</li>
+        <li>Rental Duration: ${film.renDur} days</li>
+        <li>Rental Rate: $ ${film.renRat}</li>
+        <li>Film Length: ${film.length} minutes</li>
+        <li>Replacement Cost: $ ${film.repCost}</li>
+        <li>Rating: ${film.rating}</li>
+        <li>Special Features: ${film.specFeat}</li>
+    
+        </ul>
+       <%--  <li>${film.category}</li> --%>
+
+
+    </c:when>
+    <c:otherwise>
+      <p>No Film Found</p>
+    </c:otherwise>
+  </c:choose>
+<%-- <p>
+<ul>
+<li>${film.id }</li>
+<li>${film.title }</li>
+<li>${film.description }</li>
+<li>${film.relYear }</li>
+</ul>
+</p> --%>
 <form action ="editFilm.do?id=${film.id}"  method = "POST">
 	<label for= "title">Title:</label>
-     <input type="text" name="title" value="${ film.title}" />
+     <input type="text" name="title" required="required" value="${ film.title} " />
      <br>
 	<label for= "title">Description:</label>
-    <input type="text" name="description" value="${film.description }" />
+    <input type="text" name="description" required="required" value="${film.description }" />
   <br>
    <label for= "title">Release Year:</label>
-    <input type="text" name="relYear"value="${film.relYear }" /> 
+    <input type="number" name="relYear" required="required" value="${film.relYear }" /> 
     <br>
 <label for= "title">Language ID:</label>
     <select name="lanId"> 
@@ -31,7 +64,7 @@
     </select>
     <br>
     <label for= "title">Rental Duration:</label>
-    <input type="text" name="renDur" value="${film.renDur }" />
+    <input type="number" name="renDur" required="required" value="${film.renDur }" />
     <br>
  <label for= "title">Rental Rate:</label>
     <select name="renRat">
@@ -41,7 +74,7 @@
     </select>
     <br>
     <label for= "title">Film Length:</label>
-    <input type="text" name="length" value="${film.length }" />
+    <input type="number" name="length" required="required" value="${film.length }" />
     <br>
    <label for= "title">Replacement Cost:</label>
      <select name="repCost">
@@ -73,6 +106,7 @@
       <input type="checkbox" id="specFeat" name="specFeat" value="Behind the Scenes" />
       <label for="behScenes">Behind the Scenes</label>
     </div>
+    
     <br>
     <input type= "submit" value= "Update Film">
     <br>

@@ -9,16 +9,16 @@
   <div>
   <form action="AddFilmForm.do" method="GET">
     Film Name:
-    <input type="text" name="title"/> 
+    <input type="text" name="title" required="required"/> 
     <br>
     Description:
-    <input type="text" name="description"/> 
+    <input type="text" name="description" required="required"/> 
     <br>
     Release year:
-    <input type="text" name="relYear"/> 
+    <input type="number" name="relYear" required="required"/> 
     <br>
     Language ID:
-    <select name="lanId">
+    <select name="lanId" required="required">
     <option value="1">English</option> 
     <option value="2">Italian</option> 
     <option value="3">Japanese</option> 
@@ -28,20 +28,20 @@
     </select>
     <br>
     Rental Duration:
-    <input type="text" name="renDur"/> 
+    <input type="number" name="renDur" required="required"/> 
     <br>
     Rental Rate:
-    <select name="renRat">
+    <select name="renRat" required="required">
     <option value="3.99">3.99</option> 
     <option value="5.99">5.99</option> 
     <option value="7.99">7.99</option> 
     </select>
     <br>
     Film Length:
-    <input type="text" name="length"/> 
+    <input type="number" name="length" required="required"/> 
     <br>
     Replacement Cost:
-     <select name="repCost">
+     <select name="repCost" required="required">
     <option value="3.99">3.99</option> 
     <option value="5.99">5.99</option> 
     <option value="7.99">7.99</option> 
