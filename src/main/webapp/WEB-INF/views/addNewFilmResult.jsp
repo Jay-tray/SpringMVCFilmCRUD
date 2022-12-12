@@ -13,7 +13,8 @@
 		<c:when test="${! empty film}">
 			<p>Film added successfully</p>
 			<p>Your film's ID is:  ${film.id } </p>
-			<br>
+			<br>Title: ${film.title }
+			<br>Description: ${film.description }
 			<br>
 			<br>
 			<p>Return to Main Menu</p>
@@ -23,7 +24,7 @@
 		</form>
 		<br>
 			<p>Edit Film</p>
-		<form action="editFilm.do" method="POST">
+		<form action="editFilm.do?id+${film.id }" method="POST">
 		<input type="hidden" name="film" value= ${film.id } />
 		<input type="submit" value="Edit Film" />		
 		</form>	

@@ -12,7 +12,7 @@
 <body>
 <form action ="editFilm.do?id=${film.id }" method = "POST">
 	<label for= "title">Title:</label>
-     <input type="text" name="title" value="${film.title }" />
+     <input type="text" name="title" value="${title}" />
      <br>
 	<label for= "title">Description:</label>
     <input type="text" name="description" value="${film.description }" />
