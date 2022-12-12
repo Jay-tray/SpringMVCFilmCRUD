@@ -14,6 +14,7 @@
 
       <p> Film Search Match: </p>
     <ul>
+    <li>${film.id }</li>
         <li>${film.title}</li>
         <li>${film.description}</li>
         <li>${film.relYear}</li>
@@ -35,7 +36,7 @@
 		<br>
 			<p>Edit Film</p>
 		<form action="editFilm.do?id=${film.id }" method="POST">
-		<input type="hidden" name="filmid" value= "${film.id }" />
+		<input type="hidden" name="filmId" value= "${film.id }" />
 		<input type="submit" value="Edit Film" />		
 		</form>	
 		<br>
