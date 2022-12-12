@@ -13,7 +13,11 @@
     <c:when test="${! deleted}">
        Film  successfully deleted!
     
-      
+          		<p>Return to Main Menu</p>
+		<form action="index.html" method="GET">
+		<input type="hidden" name="film" value= ${film.id } />
+		<input type="submit" value="Main Menu" />
+		</form>
     </c:when>
     <c:otherwise>
       <p>Error deleting film</p>

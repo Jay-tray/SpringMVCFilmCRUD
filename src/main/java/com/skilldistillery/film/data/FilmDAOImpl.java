@@ -229,22 +229,6 @@ public class FilmDAOImpl implements FilmDAO {
 			return language;
 		}
 
-		/*
-		 * public String getCategory(int categoryId) { if (categoryId <= 0) { return
-		 * null; } String sql =
-		 * "SELECT category.name FROM film_category JOIN film ON film_category.film_id=film.id WHERE film.id = ?"
-		 * ; //FIGURE THIS OUT String category = ""; try { Connection conn =
-		 * DriverManager.getConnection(URL, user, pass); PreparedStatement stmt =
-		 * conn.prepareStatement(sql); stmt.setInt(1, categoryId); ResultSet rs =
-		 * stmt.executeQuery();
-		 * 
-		 * if (rs.next()) { category = rs.getString("category.name"); }
-		 * 
-		 * rs.close(); stmt.close(); conn.close();
-		 * 
-		 * } catch (SQLException e) { e.printStackTrace(); } return category;
-		 */
-		//}
 		@Override
 		public Actor createActor(Actor actor) {
 			Actor newActor = actor;
@@ -509,4 +493,5 @@ public class FilmDAOImpl implements FilmDAO {
 			}
 			return true;
 		}
+		
 	}

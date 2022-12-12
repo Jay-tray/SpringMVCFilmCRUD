@@ -14,6 +14,7 @@
 
       <p> Film Search Match: </p>
     <ul>
+    <li>${film.id }</li>
         <li>${film.title}</li>
         <li>${film.description}</li>
         <li>${film.relYear}</li>
@@ -27,6 +28,12 @@
         <li>${film.actors}</li>
        <%--  <li>${film.category}</li> --%>
       </ul>
+
+    </c:when>
+    <c:otherwise>
+      <p>No Film Found</p>
+    </c:otherwise>
+  </c:choose>
       		<p>Return to Main Menu</p>
 		<form action="index.html" method="GET">
 		<input type="hidden" name="film" value= ${film.id } />
@@ -35,7 +42,7 @@
 		<br>
 			<p>Edit Film</p>
 		<form action="editFilm.do?id=${film.id }" method="POST">
-		<input type="hidden" name="filmid" value= "${film.id }" />
+		<input type="hidden" name="film" value= "${film.id }" />
 		<input type="submit" value="Edit Film" />		
 		</form>	
 		<br>
@@ -44,11 +51,5 @@
 		<input type="hidden" name="film" value= "${film.id }" />
 		<input type="submit" value="Delete Film" />
 		</form>	
-
-    </c:when>
-    <c:otherwise>
-      <p>No Film Found</p>
-    </c:otherwise>
-  </c:choose>
 </body>
 </html>
