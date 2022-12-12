@@ -59,6 +59,21 @@
     <option value="NC-17">NC17</option> 
     </select>
     <br>
+     <div>Special Features <br>
+   
+   <input type="checkbox" id="specFeat" name="specFeat" value="Trailers" />
+      <label for="trailers">Trailers</label>
+    <br>
+      <input type="checkbox" id="specFeat" name="specFeat" value="Commentaries" />
+      <label for="commentaries">Commentaries</label>
+    <br>
+      <input type="checkbox" id="specFeat" name="specFeat" value="Deleted Scenes" />
+      <label for="delScenes">Deleted Scenes</label>
+   <br>
+      <input type="checkbox" id="specFeat" name="specFeat" value="Behind the Scenes" />
+      <label for="behScenes">Behind the Scenes</label>
+    </div>
+    <br>
     <input type= "submit" value= "Update Film">
     <br>
  </form>

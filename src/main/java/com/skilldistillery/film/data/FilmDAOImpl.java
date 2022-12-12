@@ -442,6 +442,7 @@ public class FilmDAOImpl implements FilmDAO {
 				stmt.setDouble(8, film.getRepCost());
 				stmt.setString(9, film.getRating());
 				stmt.setString(10, film.getSpecFeat());
+				stmt.setInt(11, film.getId()); //added this to retrieve the film id as the 11th ? in the sql string
 				
 				int updateCount = stmt.executeUpdate();
 
